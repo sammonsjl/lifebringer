@@ -26,14 +26,6 @@
 </header>
 
 <main class="grid-login">
-    <!--
-        <button class="btn btn-social btn-facebook" type="button" onclick="signInWithFacebook();">
-            <div class="btn-content">
-                <span class="icon-16-facebook"></span>
-                <span class="btn-label">Login with Facebook</span>
-            </div>
-        </button>
-    -->
         <button class="btn btn-social btn-google" type="button" onclick="signInWithGoogle();">
             <div class="btn-content">
                 <span class="icon-google"></span>
@@ -51,12 +43,6 @@
         var googleProvider = new auth.provider.Google();
         googleProvider.setProviderScope('email');
         auth.signInWithRedirect(googleProvider);
-    }
-
-    function signInWithFacebook() {
-        var githubProvider = new auth.provider.Facebook();
-        githubProvider.setProviderScope('email');
-        auth.signInWithRedirect(githubProvider);
     }
 
     auth.onSignIn(function(user) {
