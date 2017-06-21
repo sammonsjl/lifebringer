@@ -73,51 +73,40 @@
         var sendScoreToServer = function() {
             var id = window.md5(currentUser.email);
 
-            WeDeploy.data('db-lifebringer.wedeploy.xyz').where('id', window.md5(currentUser.email))
-                .get('game').then(
-                    function(result) {
+            WeDeploy
+                .data('db-ccc.liferay.com')
+                .where('id', id)
+                .get('game')
+                .then(function(result) {
+                    var game = {};
 
-                        var game = {};
+                    if (result.length > 0) {
+                        game = result[0];
+                    }
 
-                        if (result.length>0) {
-                            game = result[0];
-                        }
+                    game.count++;
 
-                        game.id = window.md5(currentUser.email);
-                        game.name = currentUser.name;
-                        game.email = currentUser.email;
-                        game.photo = currentUser.photoUrl;
+                    if (score > game.maxScore) {
+                        game.maxScore = score;
+                    }
 
-                        if (!game.games) {
-                            game.games = [];
-                            game.count = 0;
-                            game.maxScore = 0;
-                        }
+                    game.games[game.games.length] = {
+                        gameDate: ((new Date()).toJSON()),
+                        score: score,
+                        redZombiesKilled: redZombiesKilledTotal,
+                        greenZombiesKilled: greenZombiesKilledTotal,
+                        fired: firedTotal,
+                        missed: missedTotal,
+                        level: level
+                    };
 
-                        game.count++;
-
-                        if (score >  game.maxScore) {
-                            game.maxScore = score;
-                        }
-
-                        game.games[game.games.length] = {
-
-                            gameDate: ((new Date()).toJSON()),
-                            score: score,
-                            redZombiesKilled: redZombiesKilledTotal,
-                            greenZombiesKilled: greenZombiesKilledTotal,
-                            fired: firedTotal,
-                            missed: missedTotal,
-                            level: level
-                        };
-
-                        WeDeploy.data('db-lifebringer.wedeploy.xyz')
-                            .update('game', game    )
-                            .then(function(item) {
-                                setTimeout(redirectToGameOverPage, 4000);
-                            });
-
-                    });
+                    WeDeploy
+                        .data('db-ccc.liferay.com')
+                        .update('game/' + id, game)
+                        .then(function() {
+                            setTimeout(redirectToGameOverPage, 2000);
+                        });
+                });
         }
 
 
