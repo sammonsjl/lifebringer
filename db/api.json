@@ -1,7 +1,12 @@
 [
 	{
 		"path": "/game/*",
-		"method": ["GET", "PATCH", "PUT", "POST", "DELETE"],
+		"method": "GET",
+		"data": true
+	},
+	{
+		"path": "/game/*",
+		"method": ["PATCH", "POST", "PUT", "DELETE"],
 		"data": true,
 		"auth": {
 			"validator": "$auth != null"
