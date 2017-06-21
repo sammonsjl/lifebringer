@@ -18,6 +18,12 @@ btn.addEventListener('click', function(e) {
 // Redirect
 
 auth.onSignIn(function(currentUser) {
+	var btnLoader = document.querySelector('.btn-loader');
+	var btnGoogle = document.querySelector('.btn-google');
+
+	btnGoogle.style.display = 'none';
+	btnLoader.style.display = 'block';
+
 	currentUser.id = window.md5(currentUser.email);
 
 	WeDeploy

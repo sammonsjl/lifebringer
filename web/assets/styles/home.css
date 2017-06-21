@@ -59,3 +59,19 @@ body {
 .btn.btn-google:hover {
 	background: rgba(66,133,244, 0.8);
 }
+
+.btn-loader {
+	background: #4285f4;
+	border-radius: 4px;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: none;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 58px;
+	outline: none;
+	margin: 15px 0 0;
+	padding: 0 48px;
+	width: 100%;
+}
