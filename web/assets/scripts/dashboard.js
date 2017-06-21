@@ -25,7 +25,7 @@ WeDeploy
 	.data('db-ccc.liferay.com')
 	.orderBy('maxScore', 'desc')
 	.limit(500)
-	.get('game')
+	.get('players')
 	.then(function(players) {
 		createLeaderboard(players);
 	});

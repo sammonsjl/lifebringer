@@ -76,21 +76,21 @@
             WeDeploy
                 .data('db-ccc.liferay.com')
                 .where('id', id)
-                .get('game')
+                .get('players')
                 .then(function(result) {
-                    var game = {};
+                    var player = {};
 
                     if (result.length > 0) {
-                        game = result[0];
+                        player = result[0];
                     }
 
-                    game.count++;
+                    player.count++;
 
-                    if (score > game.maxScore) {
-                        game.maxScore = score;
+                    if (score > player.maxScore) {
+                        player.maxScore = score;
                     }
 
-                    game.games[game.games.length] = {
+                    player.games[player.games.length] = {
                         gameDate: ((new Date()).toJSON()),
                         score: score,
                         redZombiesKilled: redZombiesKilledTotal,
@@ -102,7 +102,7 @@
 
                     WeDeploy
                         .data('db-ccc.liferay.com')
-                        .update('game/' + id, game)
+                        .update('players/' + id, player)
                         .then(function() {
                             setTimeout(redirectToGameOverPage, 2000);
                         });

@@ -1,6 +1,6 @@
 [
 	{
-		"path": "/game/*",
+		"path": "/players/*",
 		"method": ["GET", "PATCH", "POST", "PUT", "DELETE"],
 		"data": true
 	}

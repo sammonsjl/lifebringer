@@ -23,7 +23,7 @@ auth.onSignIn(function(currentUser) {
 	WeDeploy
 		.data('db-ccc.liferay.com')
 		.where('id', currentUser.id)
-		.get('game')
+		.get('players')
 		.then(function(user) {
 			if (user.length > 0) {
 				document.location.href = '/game/';
@@ -39,7 +39,7 @@ auth.onSignIn(function(currentUser) {
 function createUser(currentUser) {
 	WeDeploy
 		.data('db-ccc.liferay.com')
-		.create('game', {
+		.create('players', {
 			id: currentUser.id,
 			name: currentUser.name,
 			email: currentUser.email,
