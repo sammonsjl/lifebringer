@@ -95,6 +95,8 @@
 
                         game.id = window.md5(currentUser.email);
                         game.name = currentUser.name;
+                        game.email = currentUser.email;
+                        game.photo = currentUser.photoUrl;
 
                         if (!game.games) {
                             game.games = [];
