@@ -31,7 +31,7 @@ logout.addEventListener('click', function() {
 
 var table = document.querySelector('table tbody');
 
-fetch('http://db-lifebringer.wedeploy.xyz/game')
+fetch('https://db-lifebringer.wedeploy.xyz/game')
 	.then(function(response) {
 		return response.json();
 	})
