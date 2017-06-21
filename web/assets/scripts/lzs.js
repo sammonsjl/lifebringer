@@ -83,7 +83,7 @@
 
         var sendScoreToServer = function() {
 
-            WeDeploy.data('db.lifebringer.wedeploy.io').where('id', window.md5(currentUser.email))
+            WeDeploy.data('db-lifebringer.wedeploy.xyz').where('id', window.md5(currentUser.email))
                 .get('game').then(
                     function(result) {
 
@@ -119,7 +119,7 @@
                             level: level
                         };
 
-                        WeDeploy.data('db.lifebringer.wedeploy.io')
+                        WeDeploy.data('db-lifebringer.wedeploy.xyz')
                             .update('game', game    )
                             .then(function(item) {
                                 setTimeout(redirectToGameOverPage, 4000);

@@ -1,6 +1,6 @@
 // Profile
 
-var auth = WeDeploy.auth('auth.lifebringer.wedeploy.me');
+var auth = WeDeploy.auth('auth-lifebringer.wedeploy.xyz');
 var currentUser = WeDeploy.auth().currentUser;
 
 if (currentUser) {
@@ -31,7 +31,7 @@ logout.addEventListener('click', function() {
 
 var table = document.querySelector('table tbody');
 
-fetch('http://db.lifebringer.wedeploy.me/game')
+fetch('http://db-lifebringer.wedeploy.xyz/game')
 	.then(function(response) {
 		return response.json();
 	})

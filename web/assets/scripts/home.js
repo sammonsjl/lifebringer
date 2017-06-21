@@ -1,4 +1,4 @@
-var auth = WeDeploy.auth('auth.lifebringer.wedeploy.me');
+var auth = WeDeploy.auth('auth-lifebringer.wedeploy.xyz');
 var currentUser = WeDeploy.auth().currentUser;
 
 if (currentUser) {
