@@ -4,7 +4,7 @@
 	"env": {
 		"WEDEPLOY_AUTH_PASSWORD": "true",
 		"WEDEPLOY_AUTH_GOOGLE": "true",
-		"WEDEPLOY_AUTH_GOOGLE_CLIENT_ID": "327186655382-eupoosgstmjkuf3rt04llekpkp1f4c3i.apps.googleusercontent.com",
-		"WEDEPLOY_AUTH_GOOGLE_CLIENT_SECRET": "XqqITLjqmq18zI1XyMMX3d3h",
+		"WEDEPLOY_AUTH_GOOGLE_CLIENT_ID": "199749865267-o3v9n7ps6tqtunitvgssj16fn3akfu3a.apps.googleusercontent.com",
+		"WEDEPLOY_AUTH_GOOGLE_CLIENT_SECRET": "XL9RLun1kbuMjoZVqQXoUJzo"
 	}
 }
