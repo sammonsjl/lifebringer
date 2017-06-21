@@ -142,31 +142,28 @@
 
         var lzs = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, portletId + "gamearea", { preload: preload, create: create, update: update, render: render });
 
-        var contextRoot = config.contextRoot;
-
             function preload() {
-                lzs.load.spritesheet('ray', contextRoot + 'assets/sprites/ray-sheet.png', 145, 128, 7);
-                lzs.load.spritesheet('zombie', contextRoot + 'assets/sprites/zombie-sheet.png', 119, 128);
+                lzs.load.spritesheet('ray', '/assets/sprites/ray-sheet.png', 145, 128, 7);
+                lzs.load.spritesheet('zombie', '/assets/sprites/zombie-sheet.png', 119, 128);
 
-                lzs.load.spritesheet('buttonvertical', contextRoot + 'assets/buttons/button-vertical.png',64,64);
-                lzs.load.spritesheet('buttonhorizontal', contextRoot + 'assets/buttons/button-horizontal.png',96,64);
-                lzs.load.spritesheet('buttonbox', contextRoot + 'assets/buttons/button-vertical.png',64,64);
-                lzs.load.spritesheet('buttonsquare', contextRoot + 'assets/buttons/button-square.png',120,120);
+                lzs.load.spritesheet('buttonvertical', '/assets/buttons/button-vertical.png', 64, 64);
+                lzs.load.spritesheet('buttonhorizontal', '/assets/buttons/button-horizontal.png', 96, 64);
+                lzs.load.spritesheet('buttonbox', '/assets/buttons/button-vertical.png', 64, 64);
+                lzs.load.spritesheet('buttonsquare', '/assets/buttons/button-square.png', 120, 120);
+                lzs.load.spritesheet('buttonfire', '/assets/buttons/button-round-a-big.png', 150, 150);
 
-                lzs.load.spritesheet('buttonfire', contextRoot + 'assets/buttons/button-round-a-big.png',150,150);
+                //lzs.load.spritesheet('buttonfire', '/assets/buttons/button-round-a.png',96,96);
 
-                //lzs.load.spritesheet('buttonfire', contextRoot + 'assets/buttons/button-round-a.png',96,96);
+                lzs.load.image('beam', '/assets/sprites/beam-01.png');
+                lzs.load.image('background', '/assets/sprites/grass-dirt-mix-pixeled-gray.png');
+                lzs.load.image('logo', '/assets/sprites/logo-720.png');
 
-                lzs.load.image('beam', contextRoot + 'assets/sprites/beam-01.png');
-                lzs.load.image('background', contextRoot + 'assets/sprites/grass-dirt-mix-pixeled-gray.png');
-                lzs.load.image('logo', contextRoot + 'assets/sprites/logo-720.png');
-
-                lzs.load.audio('alive', contextRoot + 'assets/sounds/angel1.mp3');
-                lzs.load.audio('hit', contextRoot + 'assets/sounds/grunt1.mp3');
-                lzs.load.audio('pew', contextRoot + 'assets/sounds/raygun1.mp3');
-                lzs.load.audio('soundtrack', contextRoot + 'assets/sounds/soundtrack.mp3');
-                lzs.load.audio('zombie', contextRoot + 'assets/sounds/zombie1.mp3');
-                lzs.load.audio('gameover', contextRoot + 'assets/sounds/we-need-your-brains.mp3');
+                lzs.load.audio('alive', '/assets/sounds/angel1.mp3');
+                lzs.load.audio('hit', '/assets/sounds/grunt1.mp3');
+                lzs.load.audio('pew', '/assets/sounds/raygun1.mp3');
+                lzs.load.audio('soundtrack', '/assets/sounds/soundtrack.mp3');
+                lzs.load.audio('zombie', '/assets/sounds/zombie1.mp3');
+                lzs.load.audio('gameover', '/assets/sounds/we-need-your-brains.mp3');
                 // fullscreen setup
 
                 lzs.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
