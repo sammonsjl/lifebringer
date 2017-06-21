@@ -1,0 +1,103 @@
+/* User Profile */
+
+.profile {
+	background: #0e141a;
+	text-align: center;
+	width: 100%;
+	padding: 20px 0 40px;
+}
+
+.profile-avatar {
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	margin: 0 0 20px;
+	background: white;
+}
+
+.profile-name {
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0 0 20px;
+}
+
+.profile-ranking {
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0;
+}
+
+.profile-position,
+.profile-score {
+	color: #00d46a;
+}
+
+.profile-play {
+	background: #00d46a;
+	border-radius: 4px;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 58px;
+	outline: none;
+	margin: 20px 0 0;
+	width: 100%;
+	text-decoration: none;
+}
+
+.profile-logout img {
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	width: 24px;
+	height: 24px;
+}
+
+/* Ranking */
+
+.ranking {
+	margin: 40px 0;
+}
+
+.ranking-title {
+	text-align: center;
+	margin: 0 0 20px;
+}
+
+.ranking-position {
+	width: 30px;
+	text-align: left;
+}
+
+.ranking-avatar img {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: white;
+}
+
+.ranking-name {
+	flex-grow: 1;
+	margin-left: 20px;
+}
+
+table {
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 1 1 auto;
+}
+
+tr {
+	width: 100%;
+	display: flex;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+
+td {
+	display: flex;
+	line-height: 50px;
+}
