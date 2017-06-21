@@ -130,9 +130,7 @@
 
 
         var redirectToGameOverPage = function() {
-
-            var url = config.gameOverPageUrl.replace("QWEQWE", gameId);
-            window.location = url;
+            document.location.href = '/dashboard/';
         };
 
         var gameWidth = 720;
