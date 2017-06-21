@@ -105,7 +105,13 @@
                         .update('players/' + id, player)
                         .then(function() {
                             setTimeout(redirectToGameOverPage, 2000);
+                        })
+                        .catch(function() {
+                            alert('Something wrong happened, try later.');
                         });
+                })
+                .catch(function() {
+                    alert('Something wrong happened, try later.');
                 });
         }
 

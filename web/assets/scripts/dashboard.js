@@ -8,13 +8,18 @@ if (!currentUser) {
 
 // Logout
 
-var auth = WeDeploy.auth('auth-ccc.liferay.com');
 var logout = document.querySelector('.profile-logout');
 
 logout.addEventListener('click', function() {
-	auth.signOut().then(function() {
-		document.location.href = '/';
-	});
+	WeDeploy
+		.auth('auth-ccc.liferay.com')
+		.signOut()
+		.then(function() {
+			document.location.href = '/';
+		})
+		.catch(function() {
+			alert('Something wrong happened, try later.');
+		})
 });
 
 // Ranking
@@ -28,7 +33,10 @@ WeDeploy
 	.get('players')
 	.then(function(players) {
 		createLeaderboard(players);
-	});
+	})
+	.catch(function() {
+		alert('Something wrong happened, try later.');
+	})
 
 function createLeaderboard(players) {
 	var html = '';
