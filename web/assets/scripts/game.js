@@ -1,9 +1,9 @@
-var currentUser = WeDeploy.auth().currentUser;
+var auth = WeDeploy.auth('https://auth-andicom.wedeploy.io');
 
-if (currentUser) {
+if (auth.currentUser) {
     runLifeBringer({
-        currentUser: currentUser,
-        weDeploy : WeDeploy
+        currentUser: auth.currentUser,
+        weDeploy: WeDeploy
     });
 }
 else {

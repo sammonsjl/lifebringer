@@ -1,63 +1,71 @@
-var auth = WeDeploy.auth('auth-ccc.liferay.com');
-var currentUser = WeDeploy.auth().currentUser;
+var auth = WeDeploy.auth('https://auth-andicom.wedeploy.io');
+var data = WeDeploy.data('https://db-andicom.wedeploy.io');
 
-if (currentUser) {
+// Check Authentication
+
+if (auth.currentUser) {
 	document.location.href = '/dashboard/';
 }
 
-// Login
+// Sign up
 
-var btn = document.querySelector('.btn');
+var form = document.querySelector('form');
+var button = document.querySelector('button');
 
-btn.addEventListener('click', function(e) {
-	var googleProvider = new auth.provider.Google();
-	googleProvider.setProviderScope('email');
-	auth.signInWithRedirect(googleProvider);
-});
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
 
-// Redirect
+	button.disabled = true;
+	button.innerText = 'Cargando...';
 
-auth.onSignIn(function(currentUser) {
-	var btnLoader = document.querySelector('.btn-loader');
-	var btnGoogle = document.querySelector('.btn-google');
-
-	btnGoogle.style.display = 'none';
-	btnLoader.style.display = 'block';
-
-	currentUser.id = window.md5(currentUser.email);
-
-	WeDeploy
-		.data('db-ccc.liferay.com')
-		.where('id', currentUser.id)
-		.get('players')
-		.then(function(user) {
-			if (user.length > 0) {
-				document.location.href = '/game/';
-			} else {
-				createUser(currentUser);
-			}
+	createUser(form)
+		.then(function() {
+			return loginUser(form);
 		})
-		.catch(function() {
-			alert('Something wrong happened, try later.');
-		})
-});
-
-function createUser(currentUser) {
-	WeDeploy
-		.data('db-ccc.liferay.com')
-		.create('players', {
-			id: currentUser.id,
-			name: currentUser.name,
-			email: currentUser.email,
-			photoUrl: currentUser.photoUrl,
-			count: 0,
-			maxScore: 0,
-			games: []
+		.then(function() {
+			return saveUser(form);
 		})
 		.then(function() {
 			document.location.href = '/game/';
 		})
-		.catch(function() {
-			alert('Something wrong happened, try later.');
-		})
+		.catch(function(err) {
+			button.disabled = false;
+			button.innerText = 'Registrarse';
+
+			if (err.errors[0].reason === 'exists') {
+				alert('This email has been used before, try another one.');
+				form.reset();
+			} else {
+				alert('Something wrong happened, try later.');
+				form.reset();
+			}
+		});
+});
+
+// Create User
+
+function createUser(form) {
+	return auth.createUser({
+			id: window.md5(form.email.value),
+			name: form.name.value,
+			email: form.email.value,
+			tel: form.tel.value,
+			company: form.company.value,
+			jobtitle: form.jobtitle.value,
+			password: form.password.value
+		});
+}
+
+function loginUser(form) {
+	return auth.signInWithEmailAndPassword(form.email.value, form.password.value);
+}
+
+function saveUser(form) {
+	return data.create('players', {
+			id: window.md5(form.email.value),
+			name: form.name.value,
+			count: 0,
+			maxScore: 0,
+			games: []
+		});
 }
