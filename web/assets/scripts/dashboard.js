@@ -29,7 +29,6 @@ data.orderBy('maxScore', 'desc')
 	.limit(500)
 	.get('players')
 	.then(function(players) {
-		console.log(players);
 		createLeaderboard(players);
 	})
 	.catch(function(err) {
